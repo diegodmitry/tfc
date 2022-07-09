@@ -82,6 +82,7 @@ describe('(TDD) Desenvolva testes que cubram no mínimo 5% dos arquivos back-end
     });
     expect(response).to.have.status(400);
   });
+  
   // De acordo com conversa com Felipe, o Req2 é visando o Req3 e sucessivamente.
   // Entretanto percebi que ao digitar apenas as linhas passo no requisito.  
 });
