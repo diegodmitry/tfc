@@ -82,32 +82,6 @@ describe('(TDD) Desenvolva testes que cubram no mínimo 5% dos arquivos back-end
     });
     expect(response).to.have.status(400);
   });
-
-  // it('Verifica se o campo login não estiver na requisição, retorna com o status 401 { "message": "All fields must be filled" }', async () => {
-  //   const response = await chai.request(app).post('/login').send({
-  //     'password': 'secret_admin',
-  //   });
-  //   expect(response).to.have.status(401);
-  // });
-
-  // it('Espera o status 200', async () => {
-  //   const request = await chai.request(app).post('/login').send({
-  //     'email': 'admin@admin.com',
-  //     'password': 'secret_admin',
-  //   });
-  //   // const token = JSON.stringify({ token: "eyJhbGciOiJIUzI1NiJ9.YWRtaW5AYWRtaW4uY29t.E07agDjMTf4ZyVcKgcSE3RSBxD1QqGtNGNUd8xrppL4" })
-  //   expect(request).to.have.status(200);
-  //   expect(request.body).to.have.property('email').to.be.equal('admin@admin.com');
-  //   // expect(request).to.be.eq(token);
-  // });
-
-  // it('Se o login for bem sucedido, retorna uma status 200 com informações do usuário e senha', async () => {
-  //   res = await chai.request(app).post('/login').send(validLogin);
-  //   const resolve = JSON.stringify(returnLoginMock)
-  //   expect(res.text).to.be.eq(resolve);
-  //   expect(res).to.have.status(StatusCodes.OK);
-  // });
-
   // De acordo com conversa com Felipe, o Req2 é visando o Req3 e sucessivamente.
   // Entretanto percebi que ao digitar apenas as linhas passo no requisito.  
 });
