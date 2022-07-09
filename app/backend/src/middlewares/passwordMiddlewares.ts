@@ -9,7 +9,7 @@ enum StatusCodes {
 const passwordMiddleware = (req:Request, res:Response, next: NextFunction) => {
   const { password } = req.body;
   if (password) {
-    if (password.length > 5) {
+    if (password.length >= 1) {
       return next();
     } return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Incorrect email or password' });
   } return res.status(StatusCodes.BAD_REQUEST).json({ message: 'All fields must be filled' });
