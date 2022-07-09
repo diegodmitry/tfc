@@ -6,11 +6,8 @@ function verifyMail(mail: string):boolean {
 }
 
 enum StatusCodes {
-  OK = 200,
-  CREATED = 201,
   BAD_REQUEST = 400,
   UNAUTHORIZED = 401,
-  NOT_FOUND = 404,
 }
 
 // Req 5 e 9
