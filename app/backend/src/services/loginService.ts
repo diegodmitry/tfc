@@ -3,7 +3,8 @@ import * as bcrypt from 'bcryptjs';
 
 import Users from '../database/models/users';
 
-const generateToken = (data: string) => {
+// exported function to use on test
+export const generateToken = (data: string) => {
   const secret = 'mysecret';
   const jwtConfig:object = {
     expiresIn: '7d',
