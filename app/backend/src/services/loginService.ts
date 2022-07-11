@@ -1,11 +1,17 @@
 import * as jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcryptjs';
+// desenvolvido com ajuda do Rafael
+import { config } from 'dotenv';
 
 import Users from '../database/models/users';
 
+config();
+
+// desenvolvido com ajuda do Rafael
+const secret = process.env.JWT_SECRET || 'jwt_secret';
+
 // exported function to use on test
 export const generateToken = (data: string) => {
-  const secret = 'mysecret';
   const jwtConfig:object = {
     expiresIn: '7d',
     algorithm: 'HS256',
@@ -14,23 +20,16 @@ export const generateToken = (data: string) => {
 };
 
 function verifyToken(token: string) {
-  // console.log("🚀 ~ file: loginService.ts ~ line 16 ~ verifyToken ~ token", token)
-  const secret = 'mysecret';
-  const validToken: any = jwt.verify(token, secret);
-  // console.log("🚀 loginService.ts ~ line 19 ~ validToken", validToken)
-  // tentei colocar validToken diferente de undefined mas não funciona.
-  // if (validToken !== 'undefined') {
-  // }
-  // console.log("🚀 ~ file: loginService.ts ~ line 19 ~ verifyToken ~ validToken", validToken)
-  return validToken;
-  // console.log('Invalid Access');
+  // desenvolvido com ajuda do Rafael
+  const validToken: string | jwt.JwtPayload = jwt.verify(token, secret);
+  const email = (validToken as jwt.JwtPayload).data;
+  return email;
 }
 
 // Req 3
 export const getUserByMail = async (mail: string, pass: string) => {
   const user = await Users.findOne({ where: { email: mail } });
   const token = generateToken(mail);
-  // console.log("🚀 ~ file: loginService.ts ~ line 30 ~ getUserByMail ~ token", token)
   const NOT_FOUND = 'NOT FOUND';
   if (user !== null) {
     const validPassword = await bcrypt.compare(pass, user.password);
@@ -43,11 +42,10 @@ export const getUserByMail = async (mail: string, pass: string) => {
 
 // Req 12
 export const getRole = async (auth:string) => {
-  // fazer condicao diferente de undefined
   try {
-    const validToken = verifyToken(auth);
-    // console.log("🚀 ~ file: loginService.ts ~ line 44 ~ getRole ~ validToken", validToken)
-    const user = await Users.findOne({ where: { email: validToken.data } });
+    // desenvolvido com ajuda do Rafael
+    const email = verifyToken(auth);
+    const user = await Users.findOne({ where: { email } });
     if (user !== null) return user.role;
   } catch (error) {
     console.log(error);
