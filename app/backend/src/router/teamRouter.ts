@@ -1,12 +1,12 @@
 import { Router } from 'express';
 import { getAllTeamsList, getTeamById } from '../controllers/teamController';
 
-const clubsRoutes = Router();
+const teamRouter = Router();
 
 // Req 15
-clubsRoutes.get('/teams', getAllTeamsList);
+teamRouter.get('/teams', getAllTeamsList);
 
 // Req 16
-clubsRoutes.get('/teams/:id', getTeamById);
+teamRouter.get('/teams/:id', getTeamById);
 
-export default clubsRoutes;
+export default teamRouter;
