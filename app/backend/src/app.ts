@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as cors from 'cors';
 import loginRouter from './router/loginRouter';
 import teamRouter from './router/teamRouter';
+import matchesRoute from './router/matchesRouter';
 
 class App {
   public app: express.Express;
@@ -28,6 +29,7 @@ class App {
     this.app.use(accessControl);
     this.app.use(loginRouter);
     this.app.use(teamRouter);
+    this.app.use(matchesRoute);
   }
 
   public start(PORT: string | number):void {
