@@ -3,7 +3,7 @@ import { getAllTeams, getTeamsById } from '../services/teamService';
 
 // Req 15
 export const getAllTeamsList = async (req:Request, res:Response) => {
-  const listClubs = await getAllTeams();  
+  const listClubs = await getAllTeams();
   return res.status(200).json(listClubs);
 };
 
