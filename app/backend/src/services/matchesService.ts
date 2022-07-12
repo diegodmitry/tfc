@@ -32,4 +32,10 @@ const updateStatusInProgress = async (id: string) => {
   return { message: 'Finished' };
 };
 
-export default { getAll, create, updateStatusInProgress };
+// Req 28
+const updateScore = async (id: string, matchGoals: object) => {
+  const resultUpdated = await Matches.update(matchGoals, { where: { id } });
+  return { message: 'Result was updated!', resultUpdated };
+};
+
+export default { getAll, create, updateStatusInProgress, updateScore };
