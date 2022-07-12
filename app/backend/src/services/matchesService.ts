@@ -11,4 +11,25 @@ const getAll = async () => {
   return listMatches;
 };
 
-export default getAll;
+export interface IMatch {
+  homeTeam: number,
+  awayTeam: number,
+  homeTeamGoals: number,
+  awayTeamGoals: number,
+  inProgress: boolean
+}
+
+// Req 23
+const create = async (obj: IMatch) => {
+  const inProgress = true;
+  const newMatch = await Matches.create({ ...obj, inProgress });
+  return newMatch;
+};
+
+// Req 24
+const updateStatusInProgress = async (id: string) => {
+  await Matches.update({ inProgress: false }, { where: { id } });
+  return { message: 'Finished' };
+};
+
+export default { getAll, create, updateStatusInProgress };
