@@ -31,4 +31,16 @@ const updateStatusInProgress = async (req:Request, res: Response) => {
   }
 };
 
-export default { getMatches, createMatches, updateStatusInProgress };
+// Req 28
+const updateScore = async (req:Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const matchGoals = req.body;
+    const response = await matchesService.updateScore(id, matchGoals);
+    return res.status(200).json(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export default { getMatches, createMatches, updateStatusInProgress, updateScore };
