@@ -19,7 +19,8 @@ export const generateToken = (data: string) => {
   return jwt.sign({ data }, secret, jwtConfig);
 };
 
-function verifyToken(token: string) {
+// export function to use validateToken Middleware
+export function verifyToken(token: string) {
   // desenvolvido com ajuda do Rafael
   const validToken: string | jwt.JwtPayload = jwt.verify(token, secret);
   const email = (validToken as jwt.JwtPayload).data;
