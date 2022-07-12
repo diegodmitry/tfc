@@ -20,4 +20,7 @@ matchesRoute.post(
 // Req 24
 matchesRoute.patch('/matches/:id/finish', matchesController.updateStatusInProgress);
 
+// Req 28
+matchesRoute.patch('/matches/:id', matchesController.updateScore);
+
 export default matchesRoute;
