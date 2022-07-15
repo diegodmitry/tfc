@@ -35,6 +35,8 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
 2. No diretório raiz, execute o comando:
 ``` npm run compose:up ``` 
 
-Com isso a aplicação já vai está em execução, basta entrar no navegador. 
+Com isso a aplicação já vai está em execução, basta entrar no navegador.
+
 O frontend vai estar executando no endereço: http://localhost:3000/
+
 O backend vai estar executando no endereço: http://localhost:3001/teams
