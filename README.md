@@ -1,4 +1,4 @@
-# Boas vindas ao repositório do projeto Trybe Futebol Clube!
+# Boas vindas ao repositório do projeto Trybe Futebol Clube! ⚽
 
 O Trybe Futebol Clube, ou TFC, é um projeto que emula partidas e a classificação dos times de um campeonato de futebol.
 
@@ -27,7 +27,7 @@ Se tiver qualquer dúvida, envie um email ou entre em contato pelo LinkedIn! roc
 
 Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta e do Manual da Pessoa Estudante da Trybe.
 
-# computer Instalando o projeto
+# 💻 Instalando o projeto
 
 1. No diretorio raiz do projeto executee o comando:
 ``` npm install ```
